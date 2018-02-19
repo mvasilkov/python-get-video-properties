@@ -1,0 +1,2 @@
+include videoprops/binary_dependencies/ffprobe
+include videoprops/binary_dependencies/ffprobe.exe
