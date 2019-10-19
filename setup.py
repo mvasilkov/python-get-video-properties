@@ -1,13 +1,17 @@
+from pathlib import Path
 from setuptools import find_packages, setup
+
+README = Path(__file__).resolve().parent / 'README.md'
 
 if __name__ == '__main__':
     setup(
         name='get-video-properties',
 
-        version='0.1.0',
+        version='0.1.1',
 
         description='Get video properties',
-        long_description='Get video properties',
+        long_description=README.read_text(encoding='utf-8'),
+        long_description_content_type='text/markdown',
 
         url='https://github.com/mvasilkov/python-get-video-properties',
 
