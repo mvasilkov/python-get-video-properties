@@ -46,7 +46,11 @@ def test_requirements():
 
 
 def get_stream_properties(movie: str, title: str, ffprobe_args):
-    if not isfile(movie) or not access(movie, R_OK):
+    if (
+        not movie.startswith('https://')
+        and not movie.startswith('http://')
+        and (not isfile(movie) or not access(movie, R_OK))
+    ):
         raise RuntimeError(f'File not found or inaccessible: {movie}')
 
     output = check_output([which_ffprobe(), *ffprobe_args, movie], encoding='utf-8')
